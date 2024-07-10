@@ -1,4 +1,5 @@
-// Helper function: createEmployeeRecord
+// =============== createEmployeeRecord() ===============
+
 function createEmployeeRecord(array) {
     return {
         firstName: array[0],
@@ -10,13 +11,15 @@ function createEmployeeRecord(array) {
     };
 }
 
-// Helper function: createEmployeeRecords
+// =============== createEmployeeRecords() ===============
+
 function createEmployeeRecords(arrays) {
     // Map each array in `arrays` to an employee record using `createEmployeeRecord`
     return arrays.map(createEmployeeRecord);
 }
 
-// Helper function: createTimeInEvent
+// =============== createTimeInEvent() ===============
+
 function createTimeInEvent(employee, dateStamp) {
     let [date, hour] = dateStamp.split(' ');
 
@@ -30,7 +33,8 @@ function createTimeInEvent(employee, dateStamp) {
     return employee; // Return updated employee record
 }
 
-// Helper function: createTimeOutEvent
+// =============== createTimeOutEvent() ===============
+
 function createTimeOutEvent(employee, dateStamp) {
     let [date, hour] = dateStamp.split(' ');
 
@@ -44,7 +48,8 @@ function createTimeOutEvent(employee, dateStamp) {
     return employee; // Return updated employee record
 }
 
-// Helper function: hoursWorkedOnDate
+// =============== hoursWorkedOnDate() ===============
+
 function hoursWorkedOnDate(employee, date) {
     // Find the corresponding time in and time out events for `date`
     const timeIn = employee.timeInEvents.find(event => event.date === date);
@@ -54,7 +59,8 @@ function hoursWorkedOnDate(employee, date) {
     return (timeOut.hour - timeIn.hour) / 100;
 }
 
-// Helper function: wagesEarnedOnDate
+// =============== wagesEarnedOnDate() ===============
+
 function wagesEarnedOnDate(employee, date) {
     // Calculate hours worked on `date`
     const hoursWorked = hoursWorkedOnDate(employee, date);
@@ -63,7 +69,8 @@ function wagesEarnedOnDate(employee, date) {
     return hoursWorked * employee.payPerHour;
 }
 
-// Helper function: allWagesFor
+// =============== allWagesFor() ===============
+
 function allWagesFor(employee) {
     // Get all dates worked by the employee from time in events
     const datesWorked = employee.timeInEvents.map(event => event.date);
@@ -74,7 +81,8 @@ function allWagesFor(employee) {
     }, 0);
 }
 
-// Helper function: calculatePayroll
+// =============== calculatePayroll() ===============
+
 function calculatePayroll(employees) {
     // Calculate total payroll by summing up all wages for each employee
     return employees.reduce((totalPayroll, employee) => {
@@ -82,7 +90,7 @@ function calculatePayroll(employees) {
     }, 0);
 }
 
-// EXAMPLE
+// =============== EXAMPLE ===============
 
 let employeeRecords = createEmployeeRecords([
     ["John", "Doe", "Manager", 25],
