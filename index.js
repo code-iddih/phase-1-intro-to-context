@@ -1,13 +1,16 @@
 // =============== createEmployeeRecord() ===============
 
+// Create an employee record object from an array of data
 function createEmployeeRecord(array) {
+
+    // Return an object representing an employee record
     return {
         firstName: array[0],
         familyName: array[1],
         title: array[2],
         payPerHour: array[3],
-        timeInEvents: [],
-        timeOutEvents: []
+        timeInEvents: [], // Initialize an empty array for timeInEvents
+        timeOutEvents: [] // Initialize an empty array for timeOutEvents
     };
 }
 
